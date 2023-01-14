@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-	api("com.google.protobuf:protobuf-java:3.21.12")
+	api("com.google.protobuf:protobuf-kotlin:3.21.12")
 	protobuf(files("proto/"))
 }
 
