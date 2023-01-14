@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package leon.patmore.protobuf.model;
+
 message QueueMessage {
     string id = 1;
 }
