@@ -4,4 +4,6 @@ package leon.patmore.protobuf.model;
 
 message QueueMessage {
     string id = 1;
+    bytes content = 2;
+    int64 ttlMs = 3;
 }

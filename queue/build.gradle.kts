@@ -21,9 +21,6 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
 	implementation(project(":model"))
-
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("io.kotest:kotest-assertions-jvm:4.0.7")
 }
 
 tasks.withType<KotlinCompile> {

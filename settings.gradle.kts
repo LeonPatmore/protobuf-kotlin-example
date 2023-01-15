@@ -1,3 +1,3 @@
 rootProject.name = "protobuf"
 
-include("model", "producer")
+include("model", "queue", "example")
