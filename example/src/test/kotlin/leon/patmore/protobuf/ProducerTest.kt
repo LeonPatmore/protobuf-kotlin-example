@@ -1,6 +1,7 @@
 package leon.patmore.protobuf
 
-import com.google.protobuf.ByteString
+import com.google.protobuf.Any
+import leon.patmore.protobuf.model.QueueModel.ExampleDomain
 import leon.patmore.protobuf.model.QueueModel.QueueMessage
 import leon.patmore.protobuf.simple.SimpleConfiguration
 import org.junit.jupiter.api.Test
@@ -18,7 +19,7 @@ internal class ProducerTest {
         producer.produce(QueueMessage.newBuilder()
                 .setId("myId")
                 .setTtlMs(10000)
-                .setContent(ByteString.copyFromUtf8("cool-content"))
+                .setContent(Any.pack(ExampleDomain.newBuilder().setStatus("hello").build()))
                 .build())
     }
 

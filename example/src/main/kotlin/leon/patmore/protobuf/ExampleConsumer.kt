@@ -1,5 +1,7 @@
 package leon.patmore.protobuf
 
+import com.google.protobuf.kotlin.unpack
+import leon.patmore.protobuf.model.QueueModel.ExampleDomain
 import leon.patmore.protobuf.model.QueueModel.QueueMessage
 import org.springframework.stereotype.Component
 import java.util.Base64
@@ -9,7 +11,8 @@ class ExampleConsumer : Consumer {
 
     override fun process(message: String) {
         val queueMessage = QueueMessage.parseFrom(Base64.getDecoder().decode(message))
-        println(queueMessage.content.toStringUtf8())
+        val exampleDomain = queueMessage.content.unpack<ExampleDomain>()
+        println(exampleDomain.status)
     }
 
 }

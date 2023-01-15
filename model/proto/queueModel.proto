@@ -2,8 +2,14 @@ syntax = "proto3";
 
 package leon.patmore.protobuf.model;
 
+import "google/protobuf/any.proto";
+
 message QueueMessage {
     string id = 1;
-    bytes content = 2;
+    google.protobuf.Any content = 2;
     int64 ttlMs = 3;
+}
+
+message ExampleDomain {
+    string status = 1;
 }
