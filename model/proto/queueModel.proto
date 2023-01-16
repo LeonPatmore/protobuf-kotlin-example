@@ -10,6 +10,13 @@ message QueueMessage {
     int64 ttlMs = 3;
 }
 
+message QueueMessageExtended {
+    string id = 1;
+    google.protobuf.Any content = 2;
+    int64 ttlMs = 3;
+    string newField = 4;
+}
+
 message ExampleDomain {
     string status = 1;
 }
