@@ -17,7 +17,7 @@ internal class ProducerTest {
     private lateinit var producer: Producer
 
     @Test
-    internal fun name() {
+    internal fun `test producer`() {
         producer.produce(QueueMessage.newBuilder()
                 .setId("myId")
                 .setTtlMs(10000)
@@ -26,7 +26,7 @@ internal class ProducerTest {
     }
 
     @Test
-    internal fun test() {
+    internal fun `test when a full object is parsed to a sub-object and then serialized, it keeps information about the full object`() {
         val fullObject = QueueModel.QueueMessageExtended.newBuilder()
                 .setId("id")
                 .setNewField("some-value")
@@ -38,9 +38,11 @@ internal class ProducerTest {
         subObject.id shouldBe "id"
 
         val subObjectBytes = subObject.toByteArray()
-        val fullObject2 = QueueModel.QueueMessageExtended.parseFrom(subObjectBytes);
+        val fullObject2 = QueueModel.QueueMessageExtended.parseFrom(subObjectBytes)
         fullObject2.id shouldBe "id"
         fullObject2.newField shouldBe "some-value"
+
+        fullObject2 shouldBe fullObject
     }
 
 }
